@@ -3,16 +3,13 @@ package edu.orangecoastcollege.cs273.mpaulding.occars;
 /**
  * Data model for an auto
  */
-public class Auto {
-    static final double STATE_TAX = .07;
-    static final double INTEREST_RATE = .09;
+public class Car {
+    static final double STATE_TAX = .08;
 
 
     private double mPrice;
     private double mDownPayment;
     private int mLoanTerm;
-
-    enum LoanTerm { THREE_YEARS, FOUR_YEARS, FIVE_YEARS }
 
     public void setPrice(double price) {
         mPrice = price;
@@ -31,12 +28,12 @@ public class Auto {
     }
 
     public void setLoanTerm(String term) {
-        if (term.contains("2"))
-            mLoanTerm = 2;
-        else if (term.contains("3"))
+        if (term.contains("3"))
             mLoanTerm = 3;
-        else
+        else if (term.contains("4"))
             mLoanTerm = 4;
+        else
+            mLoanTerm = 5;
     }
 
     public int getLoanTerm() {
@@ -56,11 +53,18 @@ public class Auto {
     }
 
     public double interestAmount() {
-        return borrowedAmount() * INTEREST_RATE;
+        double interestRate;
+        if (mLoanTerm == 3)
+            interestRate = 0.0462;
+        else if (mLoanTerm == 4)
+            interestRate = 0.0416;
+        else
+            interestRate = 0.0419;
+        return borrowedAmount() * interestRate;
     }
 
     public double monthlyPayment() {
-        return borrowedAmount() / (mLoanTerm * 12);
+        return (borrowedAmount() + interestAmount()) / (mLoanTerm * 12);
     }
 
 }

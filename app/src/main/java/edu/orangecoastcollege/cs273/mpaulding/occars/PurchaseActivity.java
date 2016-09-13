@@ -11,7 +11,7 @@ import android.widget.RadioGroup;
 
 public class PurchaseActivity extends Activity {
     // THE AUTO OBJECT CONTAINS THE INFORMATION ABOUT THE VEHICLE BEING PURCHASED
-    Auto mAuto;
+    Car mCar;
 
     // THE DATA TO BE PASSED TO THE LOAN ACTIVITY
     String loanReport;
@@ -28,57 +28,56 @@ public class PurchaseActivity extends Activity {
         setContentView(R.layout.activity_purchase);
 
         //ESTABLISH REFERENCES TO EDITABLE TEXT FIELDS AND RADIO BUTTON
-        carPriceET = (EditText) findViewById(R.id.editText1);
-        downPayET = (EditText) findViewById(R.id.editText2);
-        loanTermRG = (RadioGroup) findViewById(R.id.radioGroup1);
+        carPriceET = (EditText) findViewById(R.id.carPriceEditText);
+        downPayET = (EditText) findViewById(R.id.downPaymentEditText);
+        loanTermRG = (RadioGroup) findViewById(R.id.loanTermRadioGroup);
 
         //CREATE AN AUTOMOBILE OBJECT TO STORE AUTO DATA
-        mAuto = new Auto();
+        mCar = new Car();
     }
 
     private void collectAutoInputData() {
-        // TASK 1: SET THE CAR PRICE
-        mAuto.setPrice ((double) Integer.valueOf(carPriceET.getText()
+        // TASK 1: SET THE CAR PRICE50
+        mCar.setPrice ((double) Integer.valueOf(carPriceET.getText()
                 .toString()));
 
         //TASK 2: SET THE DOWN PAYMENT
-        mAuto.setDownPayment((double)
+        mCar.setDownPayment((double)
                 Integer.valueOf(downPayET.getText()
                         .toString()));
 
         //TASK 3 SET THE LOAN TERM
         Integer radioId = loanTermRG.getCheckedRadioButtonId();
         RadioButton term = (RadioButton) findViewById(radioId);
-        mAuto.setLoanTerm(term.getText().toString());
+        mCar.setLoanTerm(term.getText().toString());
     }
     private void buildLoanReport() {
         // TASK 1: CONSTRUCT THE MONTHLY PAYMENT
         Resources res = getResources();
         monthlyPayment = res.getString(R.string.report_line1)
-                + String.format("%.02f", mAuto.monthlyPayment());
+                + String.format("%.02f", mCar.monthlyPayment());
 
 
         // TASK 2: CONSTRUCT THE LOAN REPORT
         loanReport = res.getString(R.string.report_line6)
-                + String.format("%10.02f", mAuto.getPrice());
+                + String.format("%10.02f", mCar.getPrice());
         loanReport += res.getString(R.string.report_line7)
-                + String.format("%10.02f", mAuto.getDownPayment());
+                + String.format("%10.02f", mCar.getDownPayment());
 
         loanReport += res.getString(R.string.report_line9)
-                + String.format("%18.02f", mAuto.taxAmount());
+                + String.format("%18.02f", mCar.taxAmount());
         loanReport += res.getString(R.string.report_line10)
-                + String.format("%18.02f", mAuto.totalCost());
+                + String.format("%18.02f", mCar.totalCost());
         loanReport += res.getString(R.string.report_line11)
-                + String.format("%12.02f", mAuto.borrowedAmount());
+                + String.format("%12.02f", mCar.borrowedAmount());
         loanReport += res.getString(R.string.report_line12)
-                + String.format("%12.02f", mAuto.interestAmount());
+                + String.format("%12.02f", mCar.interestAmount());
 
-        loanReport += "\n\n" + res.getString(R.string.report_line8) + " " + mAuto.getLoanTerm() + " years.";
+        loanReport += "\n" + res.getString(R.string.report_line8) + " " + mCar.getLoanTerm() + " years.";
 
-        loanReport += "\n\n" + res.getString(R.string.report_line2);
+        loanReport += "\n" + res.getString(R.string.report_line2);
         loanReport += res.getString(R.string.report_line3);
         loanReport += res.getString(R.string.report_line4);
-        loanReport += res.getString(R.string.report_line5);
 
     }
 
