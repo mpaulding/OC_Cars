@@ -34,7 +34,7 @@
     <!-- CAR PRICE INPUT SECTION -->
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/monthlyPaymentTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -46,12 +46,12 @@
         android:textSize="12sp" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/loanReportTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/textView2"
+        android:layout_alignBottom="@+id/monthlyPaymentTextView"
         android:layout_marginLeft="40dp"
-        android:layout_toRightOf="@+id/textView2"
+        android:layout_toRightOf="@+id/monthlyPaymentTextView"
         android:text="@string/dollar_sign"
         android:textColor="@color/steel_blue"
         android:textSize="12sp" />
@@ -60,9 +60,9 @@
         android:id="@+id/carPriceEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/textView3"
+        android:layout_alignBottom="@+id/loanReportTextView"
         android:layout_marginLeft="5dp"
-        android:layout_toRightOf="@+id/textView3"
+        android:layout_toRightOf="@+id/loanReportTextView"
         android:ems="10"
         android:gravity="right"
         android:inputType="number"
@@ -79,7 +79,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/textView2"
+        android:layout_below="@+id/monthlyPaymentTextView"
         android:layout_marginLeft="5dp"
         android:layout_marginTop="17dp"
         android:text="@string/down_payment"

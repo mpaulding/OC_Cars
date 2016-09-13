@@ -59,25 +59,25 @@ public class PurchaseActivity extends Activity {
 
 
         // TASK 2: CONSTRUCT THE LOAN REPORT
-        loanReport = res.getString(R.string.report_line6)
+        loanReport = res.getString(R.string.report_line2)
                 + String.format("%10.02f", mCar.getPrice());
-        loanReport += res.getString(R.string.report_line7)
+        loanReport += res.getString(R.string.report_line3)
                 + String.format("%10.02f", mCar.getDownPayment());
 
-        loanReport += res.getString(R.string.report_line9)
+        loanReport += res.getString(R.string.report_line5)
                 + String.format("%18.02f", mCar.taxAmount());
-        loanReport += res.getString(R.string.report_line10)
+        loanReport += res.getString(R.string.report_line6)
                 + String.format("%18.02f", mCar.totalCost());
-        loanReport += res.getString(R.string.report_line11)
+        loanReport += res.getString(R.string.report_line7)
                 + String.format("%12.02f", mCar.borrowedAmount());
-        loanReport += res.getString(R.string.report_line12)
+        loanReport += res.getString(R.string.report_line8)
                 + String.format("%12.02f", mCar.interestAmount());
 
-        loanReport += "\n" + res.getString(R.string.report_line8) + " " + mCar.getLoanTerm() + " years.";
+        loanReport += "\n" + res.getString(R.string.report_line4) + " " + mCar.getLoanTerm() + " years.";
 
-        loanReport += "\n" + res.getString(R.string.report_line2);
-        loanReport += res.getString(R.string.report_line3);
-        loanReport += res.getString(R.string.report_line4);
+        loanReport += "\n" + res.getString(R.string.report_line9);
+        loanReport += res.getString(R.string.report_line10);
+        loanReport += res.getString(R.string.report_line11);
 
     }
 

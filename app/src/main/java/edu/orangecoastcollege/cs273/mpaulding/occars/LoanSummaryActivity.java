@@ -13,8 +13,8 @@ public class LoanSummaryActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loan_summary);
-        TextView monthlyPayET = (TextView) findViewById(R.id.textView2);
-        TextView loanReportET = (TextView) findViewById(R.id.textView3);
+        TextView monthlyPayET = (TextView) findViewById(R.id.monthlyPaymentTextView);
+        TextView loanReportET = (TextView) findViewById(R.id.loanReportTextView);
 
         // PASS DATA
         Intent intent = getIntent();
