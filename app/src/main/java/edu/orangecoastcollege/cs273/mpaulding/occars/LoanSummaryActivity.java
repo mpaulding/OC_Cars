@@ -13,19 +13,17 @@ public class LoanSummaryActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loan_summary);
-        TextView monthlyPayET = (TextView) findViewById(R.id.monthlyPaymentTextView);
-        TextView loanReportET = (TextView) findViewById(R.id.loanReportTextView);
+        TextView monthlyPayTextView = (TextView) findViewById(R.id.monthlyPaymentTextView);
+        TextView loanReportTextView = (TextView) findViewById(R.id.loanReportTextView);
 
         // PASS DATA
         Intent intent = getIntent();
 
-        String report;
-        report = intent.getStringExtra("LoanReport");
+        String report = intent.getStringExtra("LoanReport");
+        String monthlyPay = intent.getStringExtra("MonthlyPayment");
 
-        String monthlyPay;
-        monthlyPay = intent.getStringExtra("MonthlyPayment");
-        monthlyPayET.setText(monthlyPay);
-        loanReportET.setText(report);
+        monthlyPayTextView.setText(monthlyPay);
+        loanReportTextView.setText(report);
     }
 
     public void goDataEntry(View view) {

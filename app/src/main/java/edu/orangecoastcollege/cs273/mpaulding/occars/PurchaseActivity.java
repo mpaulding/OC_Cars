@@ -2,7 +2,6 @@ package edu.orangecoastcollege.cs273.mpaulding.occars;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -38,7 +37,7 @@ public class PurchaseActivity extends Activity {
 
     private void collectAutoInputData() {
         // TASK 1: SET THE CAR PRICE50
-        mCar.setPrice ((double) Integer.valueOf(carPriceET.getText()
+        mCar.setPrice (Double.parseDouble(carPriceET.getText()
                 .toString()));
 
         //TASK 2: SET THE DOWN PAYMENT
@@ -53,31 +52,30 @@ public class PurchaseActivity extends Activity {
     }
     private void buildLoanReport() {
         // TASK 1: CONSTRUCT THE MONTHLY PAYMENT
-        Resources res = getResources();
-        monthlyPayment = res.getString(R.string.report_line1)
+        monthlyPayment = getString(R.string.report_line1)
                 + String.format("%.02f", mCar.monthlyPayment());
 
 
         // TASK 2: CONSTRUCT THE LOAN REPORT
-        loanReport = res.getString(R.string.report_line2)
+        loanReport = getString(R.string.report_line2)
                 + String.format("%10.02f", mCar.getPrice());
-        loanReport += res.getString(R.string.report_line3)
+        loanReport += getString(R.string.report_line3)
                 + String.format("%10.02f", mCar.getDownPayment());
 
-        loanReport += res.getString(R.string.report_line5)
+        loanReport += getString(R.string.report_line5)
                 + String.format("%18.02f", mCar.taxAmount());
-        loanReport += res.getString(R.string.report_line6)
+        loanReport += getString(R.string.report_line6)
                 + String.format("%18.02f", mCar.totalCost());
-        loanReport += res.getString(R.string.report_line7)
+        loanReport += getString(R.string.report_line7)
                 + String.format("%12.02f", mCar.borrowedAmount());
-        loanReport += res.getString(R.string.report_line8)
+        loanReport += getString(R.string.report_line8)
                 + String.format("%12.02f", mCar.interestAmount());
 
-        loanReport += "\n" + res.getString(R.string.report_line4) + " " + mCar.getLoanTerm() + " years.";
+        loanReport += "\n" + getString(R.string.report_line4) + " " + mCar.getLoanTerm() + " years.";
 
-        loanReport += "\n" + res.getString(R.string.report_line9);
-        loanReport += res.getString(R.string.report_line10);
-        loanReport += res.getString(R.string.report_line11);
+        loanReport += "\n" + getString(R.string.report_line9);
+        loanReport += getString(R.string.report_line10);
+        loanReport += getString(R.string.report_line11);
 
     }
 

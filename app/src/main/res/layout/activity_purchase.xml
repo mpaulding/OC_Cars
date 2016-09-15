@@ -169,7 +169,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:text="@string/loan_report_button_text"
-        android:onClick="activateLoanSummary"/>
+        android:onClick="activateLoanSummary" />
 
 </RelativeLayout>
 
